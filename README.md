@@ -10,8 +10,8 @@ depending on the platform.
 
 To run this:
 
-- npm install
-- npm start
+- `npm install`
+- `npm start`
 - A browser window will open.
 - Start a simulator.
 - Click "Run on Android device/emulator" or "Run on iOS simulator".
