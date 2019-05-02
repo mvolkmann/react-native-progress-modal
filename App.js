@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import MyButton from './MyButton';
-import ProgressModal from './ProgressModal';
+import ProgressModal2 from './ProgressModal2';
 
 export default class App extends React.Component {
   state = {inProgress: false, progress: 0};
@@ -33,7 +33,7 @@ export default class App extends React.Component {
         <Text>Line #6</Text>
         <Text>Line #7</Text>
 
-        <ProgressModal
+        <ProgressModal2
           message="Wait For It!"
           inProgress={inProgress}
           progress={progress}

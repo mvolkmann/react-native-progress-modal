@@ -3,8 +3,6 @@ import React from 'react';
 import {Modal, StyleSheet, Text, View} from 'react-native';
 import MyButton from './MyButton';
 
-const BG_OPACITY = 0.4;
-
 const noOp = () => {};
 
 const MyModal = ({
@@ -62,6 +60,7 @@ MyModal.defaultProps = {
 };
 
 const BACKGROUND_COLOR = 'white';
+const BG_OPACITY = 0.4;
 const SPACING = 10;
 const TITLE_COLOR = 'black';
 
