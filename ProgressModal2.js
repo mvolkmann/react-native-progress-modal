@@ -25,7 +25,7 @@ const getProgressComponent = progress =>
 
 const noOp = () => {};
 
-function ProgressModal2({inProgress, message, progress}) {
+function ProgressModal2({inProgress, message, messageStyle, progress}) {
   return (
     <Modal
       animationType="slide"
@@ -33,12 +33,12 @@ function ProgressModal2({inProgress, message, progress}) {
       transparent
       visible={inProgress}
     >
-      <View style={styles.modalOuter}>
-        <View style={styles.modalInner}>
-          <View>
-            <Text style={styles.message}>{message}</Text>
+      <View style={styles.backdrop}>
+        <View style={styles.modal}>
+          <View style={styles.padded}>
+            <Text style={[styles.message, messageStyle]}>{message}</Text>
           </View>
-          <View style={styles.body}>{getProgressComponent(progress)}</View>
+          <View style={styles.padded}>{getProgressComponent(progress)}</View>
         </View>
       </View>
     </Modal>
@@ -51,48 +51,28 @@ ProgressModal2.propTypes = {
   progress: number.isRequired
 };
 
-const BACKGROUND_COLOR = 'white';
 const BG_OPACITY = 0.4;
-const SPACING = 10;
-const TITLE_COLOR = 'black';
 
 const styles = StyleSheet.create({
-  body: {
-    margin: SPACING
-  },
-  button: {
-    borderColor: 'black',
-    color: 'black'
-  },
-  buttonRow: {
-    borderTopColor: 'black',
-    borderTopWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: SPACING
-  },
-  modalInner: {
-    backgroundColor: BACKGROUND_COLOR,
-    borderColor: 'gray',
-    borderWidth: 5,
-    width: '70%'
-  },
-  modalOuter: {
+  backdrop: {
     backgroundColor: `rgba(80, 80, 80, ${BG_OPACITY})`,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  title: {
-    color: TITLE_COLOR,
-    fontSize: 24,
+  modal: {
+    backgroundColor: 'white',
+    borderColor: 'gray',
+    borderWidth: 3,
+    width: '80%'
+  },
+  message: {
+    color: 'black',
+    fontSize: 20,
     fontWeight: 'bold'
   },
-  titleRow: {
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: SPACING
+  padded: {
+    padding: 10
   }
 });
 export default ProgressModal2;

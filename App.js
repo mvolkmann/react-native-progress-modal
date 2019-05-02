@@ -34,8 +34,9 @@ export default class App extends React.Component {
         <Text>Line #7</Text>
 
         <ProgressModal2
-          message="Wait For It!"
           inProgress={inProgress}
+          message="Wait For It!"
+          messageStyle={{color: 'red'}}
           progress={progress}
         />
       </View>

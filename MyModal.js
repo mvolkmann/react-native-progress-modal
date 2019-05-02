@@ -19,8 +19,8 @@ const MyModal = ({
     transparent
     visible={visible}
   >
-    <View style={styles.modalOuter}>
-      <View style={[styles.modalInner, style]}>
+    <View style={styles.backdrop}>
+      <View style={[styles.modal, style]}>
         <View style={[{borderBottomColor}, styles.titleRow]}>
           <Text style={styles.title}>{title}</Text>
           {onClose && (
@@ -65,6 +65,12 @@ const SPACING = 10;
 const TITLE_COLOR = 'black';
 
 const styles = StyleSheet.create({
+  backdrop: {
+    backgroundColor: `rgba(80, 80, 80, ${BG_OPACITY})`,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   body: {
     margin: SPACING
   },
@@ -79,17 +85,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: SPACING
   },
-  modalInner: {
+  modal: {
     backgroundColor: BACKGROUND_COLOR,
     borderColor: 'gray',
     borderWidth: 5,
     width: '70%'
-  },
-  modalOuter: {
-    backgroundColor: `rgba(80, 80, 80, ${BG_OPACITY})`,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   title: {
     color: TITLE_COLOR,
